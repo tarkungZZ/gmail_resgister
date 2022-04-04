@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer')
-const io = require('socket.io-client')
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator');
 const { url, LOCAL_SOCKET_IP, LOCAL_SOCKET_PORT } = require('../helpers/config')
+const io = require('socket.io-client')
 const local = io.connect(`http://${LOCAL_SOCKET_IP}:${LOCAL_SOCKET_PORT}`)
 
 module.exports = async (req, res) => {
@@ -132,7 +132,7 @@ module.exports = async (req, res) => {
                     gender: data.gender
                 }
 
-                local.emit('register-result', obj)
+                local.emit('gmail-result', obj)
 
                 console.log('Register email :', data.email, 'successful.')
 

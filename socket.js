@@ -11,9 +11,12 @@ io.on('connection', (socket) => {
         io.emit('sms-confirm', data)
     })
 
-    socket.on('register-result', (data) => {
+    socket.on('gmail-result', (data) => {
         console.log('regis-result :', data)
         request.post({ url: `http://${LOCAL_SOCKET_IP}:${port}/insert-email`, json: data }, (err) => {
+            if (err) console.error(err)
+        })
+        request.post({ url: `http://${LOCAL_SOCKET_IP}:${port}/fb-register`, json: data }, (err) => {
             if (err) console.error(err)
         })
     })
