@@ -17,6 +17,7 @@
     "puppeteer": "^13.5.1",
     "puppeteer-extra": "^3.2.3",
     "puppeteer-extra-plugin-stealth": "^2.9.0",
+    "request": "^2.88.2",
     "socket.io": "^4.4.1",
     "socket.io-client": "^4.4.1",
     "twilio": "^3.76.0",

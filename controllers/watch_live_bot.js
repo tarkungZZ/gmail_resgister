@@ -4,14 +4,15 @@ const facebook = require('../models/fb_model')
 
 module.exports = async (req, res) => {
 
-    console.log(req.body)
+    //console.log(req.body)
 
     const { email, password, link } = req.body
 
     const browser = await puppeteer.launch({
         defaultViewport: null,
         headless: false,
-        slowMo: 5
+        slowMo: 5,
+        executablePath: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
     })
 
     try {
@@ -25,6 +26,8 @@ module.exports = async (req, res) => {
         await page.click('#loginbutton')
         await delay(2000)
         await page.goto(link)
+
+        res.status(200).json({ message: 'done' })
 
     } catch (err) {
 
